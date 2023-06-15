@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Postlar :: Django{% endblock %}
+
+{% block content %}
+
+    <h1>Postlar</h1>
+
+    <div class="container">
+        <div class="row gap-2">
+            {% for post in posts %}
+                <div class="col-12 col-lg-3 col-md-4 col-sm-6 border">
+                    <h3>{{ post.title }}</h3>
+                    <div>Author:<u class="text-danger"> {{ post.author }}</u></div>
+                    <div>Created at: <b>{{ post.created_at }}</b></div>
+                    <hr>
+                    <p class="overflow-hidden">
+                        {{ post.body }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
